@@ -1,4 +1,4 @@
-# Knowledge Management in the Age of AI
+# Knowledge and Context Management in the Age of AI
 
 > A short course for everyone who builds with, ships, or depends on AI systems that sit on top of an organization's knowledge — engineers, PMs, knowledge owners, data teams, leaders. No heavy coding required. We build the knowledge layer that determines whether the AI on top of it is any good.
 
