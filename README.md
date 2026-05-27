@@ -1,4 +1,4 @@
-# Knowledge and Context Management in the Age of AI
+# Knowledge and Context Management
 
 Course materials for the AI-Ready Engineer masterclass on Knowledge and Context Management.
 
