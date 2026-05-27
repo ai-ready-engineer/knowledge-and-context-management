@@ -14,7 +14,7 @@ Hook: "Embeddings find things that look alike. A graph answers how things are co
 2. A graph is a representation choice (callback to L2) — and a decision we make *before* filling it. The schema is the contract extraction (L4) must satisfy.
 3. RDF/SPARQL vs. property-graph/Cypher — same idea, different ergonomics. One triple, one Cypher line. Don't religious-war it.
 4. KG vs. vector store — the decision rule: multi-hop/relational → graph; "find similar" → vectors; usually both.
-5. Gaps and contradictions become visible — missing edges, conflicting edges. This is the hook for L6 (discovery) and L9 (improvement).
+5. Gaps and contradictions become visible — missing edges, conflicting edges. This is the hook for L4 (discovery) and L7 (improvement).
 
 ## Demo / playground walkthrough
 

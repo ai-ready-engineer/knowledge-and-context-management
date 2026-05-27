@@ -1,33 +1,39 @@
-# Script — L7 Providing Context to Agents
+# Script — L7 Knowledge Improvement & Agentic Feedback
 
 > Talk outline / script. Beats to hit, transitions, what to show on screen, what to say at each turn.
 
 ## Open
 
-"For six lessons we've treated knowledge as something a *person* looks up. But the consumer now is an *agent* — and the agent never opens your knowledge base. It only ever sees what you put in its context window. So the question stops being 'is the knowledge good?' and becomes 'is the right knowledge *in the window* when the agent thinks?'"
+"Last lesson, knowledge flowed out to the agent — the forward pass. The agent then went and *did* something: solved a ticket, failed, got corrected. That outcome is an error signal. In a neural net you'd backpropagate it to update the weights. Here we backpropagate it to update the *knowledge* — and then run the loop that keeps the whole thing alive."
 
-Hook: "This is the 'context' in Knowledge and Context Management. The forward pass — knowledge flowing out to the agent."
+Hook: "Your agents in production are the best knowledge auditors you have. The question is whether their signal flows back — or evaporates in a log."
 
 ## Beats
 
-1. Context is the unit, not the document. The agent reasons over the window, period.
-2. What's in the context — instructions, retrieved knowledge (L5), tool results, memory, history. A shared budget. The KB is one tenant.
-3. Upfront vs. just-in-time (agentic) retrieval — pre-stuff vs. give the agent tools to pull. Blend.
-4. The window is finite and bigger isn't better — cost, latency, context rot / lost-in-the-middle. The 2K-beats-100K punchline.
-5. Memory + provenance — persisted memory becomes KB (subject to L1); provenance must flow through so the agent can cite.
+**Backpropagation (the backward pass)**
+1. The metaphor and its hard part: credit assignment — *which* fact caused the win or loss?
+2. The signals agents emit — retrieval hit/miss, tool fail, dead-ends, corrections, unmet needs, mid-task discoveries.
+3. Distillation, not logging; credit assignment via provenance (L4).
+4. The danger — feedback loops and model collapse. Backprop *proposes*; the loop *disposes*.
+
+**The improvement loop (closing it)**
+5. Knowledge decays; the loop: detect → prioritize → fix → verify against the L1 scorecard.
+6. Signals consolidated — L5 unanswered, L4 discovery, L6 context failures, agentic backprop, usage, user feedback.
+7. Governance — the write-back gate, provenance, human-in-the-loop proportional to impact.
 
 ## Demo / playground walkthrough
 
-- Context assembler: one task, three strategies — dump-everything / top-k / agentic just-in-time. Show the table: quality, tokens, latency.
-- Context rot demo: grow the dump; watch answer quality fall while cost rises. "More context made it worse."
-- Provenance: assemble with source spans → cited answer; strip them → a hallucination hides among the facts.
+- Run agents over a batch; collect feedback; distill a solved ticket into one clean KB candidate; trace a tool failure through provenance to the stale fact.
+- The contamination demo (moral climax): pipe raw agent outputs back → a wrong fact reinforces itself, quality collapses → add grounding + gate → arrested.
+- The loop: ingest signal streams; detect; prioritize; fix (incl. a gated agent proposal); re-run gold questions → scorecard recovers, *measured*.
+- Final slide: the loop closes — represent → connect → extract & discover → query → serve context → improve (with agentic backprop) → back to represent.
 
 ## Close
 
-Single takeaway: **The agent only knows what's in its context. Providing context is choosing the minimal, relevant, grounded, fresh slice that fits the budget — knowledge that never reaches the window might as well not exist.**
+Single takeaway: **Agents are the forward pass; their outcomes are an error signal you backpropagate into the knowledge. Distill it, assign credit with provenance, gate every write — then run a measured detect→fix→verify loop. KM is a loop, not a project, and the same agents that use your knowledge can keep it true — only with provenance and gates.**
 
 ## Notes to self
 
-- This is where "Context Management" earns its place in the title. Tie it back: every prior lesson made knowledge good; this one delivers it.
-- Keep the agent framing concrete (a support agent resolving a ticket), not abstract "context theory."
-- Tee up L8: the agent now acts on this context — and what happens next (success, failure, correction) is a signal that should flow *back* into the knowledge. That return path is backpropagation.
+- This is the capstone — tie every beat back to L1–L6 so the course lands as one connected lifecycle.
+- The contamination/model-collapse demo is the emotional core; make the wrong fact reinforce *gradually*.
+- Two halves (backprop → loop) but one message: feedback in, verified knowledge out, safely.

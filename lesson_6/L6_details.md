@@ -1,46 +1,49 @@
-# Lesson 6 — Knowledge Discovery
+# Lesson 6 — Providing Context to Agents
 
-Querying (L5) gets out what you know to ask for. **Discovery** surfaces what you didn't — the latent knowledge already implied by the structure of the graph. This is where graph algorithms turn a static knowledge base into an instrument that finds importance, structure, and gaps.
+This is the "context" half of the course made concrete. We have knowledge (L1–L4) and a way to get it out (L5). Now an **agent** needs it — and an agent doesn't browse a knowledge base. You assemble the **context** it reasons over. This is the forward pass: knowledge flows out to the agent.
 
 ## Concepts
 
-- **Discovery vs. querying.** A query needs a question; discovery generates the questions. "What's the most load-bearing piece of knowledge we have?", "what topics exist that nobody tagged?", "what relation is *missing*?" — none of these is a lookup. They are read off the graph's *structure*.
-- **Centrality — what's important.**
-  - *Degree* — how many connections (a heavily-referenced policy).
-  - *Betweenness* — sits on many paths (a concept everything routes through — and a single point of failure if it's wrong or undocumented).
-  - *PageRank / eigenvector* — important because important things point to it (authority).
-  - KM uses: find the canonical doc on a topic, rank knowledge, spot the load-bearing fact whose error would poison many answers (tie to L1).
-- **Community detection — what clusters together.** Louvain, Leiden, label propagation partition the graph into densely-connected groups. KM uses: discover topics no one tagged, find duplicate clusters, reveal **silos** (two communities that *should* be linked but aren't), organize navigation.
-- **Link prediction — what's missing.** Given the graph's structure, predict edges that *should* exist (common-neighbor, Adamic–Adar, or embedding-based scores). KM uses: surface knowledge gaps ("these tickets reference a policy no document covers"), suggest related-article links, propose entity merges. This is the **gap radar** that feeds L9's improvement loop.
-- **Node embeddings & GNNs (conceptual).** node2vec / GNNs learn a vector per node from its neighborhood — bringing embedding-style similarity *to the graph*, and powering link prediction and node classification at scale. Reach for them when the graph is large and patterns are too subtle for hand-picked metrics; skip them when a degree count or a Louvain pass already answers the question. (We stay conceptual — this is not a GNN course.)
+- **Context is the unit, not the document.** The agent reasons over whatever is in its context window *right now*. The best knowledge base in the world is useless if the relevant fact isn't in context when the agent thinks. Serving is where findability (L2) and relevance are finally cashed in.
+- **What's in an agent's context.** It's a budget shared by many tenants:
+  - **Instructions** — system prompt, role, policies.
+  - **Retrieved knowledge** — the L5 query results (chunks, subgraphs, facts).
+  - **Tool results** — outputs the agent fetched mid-task (ephemeral knowledge).
+  - **Memory** — short-term (this conversation) and long-term (persisted across sessions).
+  - **Conversation history** — the running dialogue.
+  The KB-derived knowledge is one slice; context engineering is allocating the budget across all of them.
+- **Upfront vs. just-in-time (agentic) retrieval.** Either pre-load the context you think the agent needs, or give the agent retrieval *tools* and let it pull knowledge just-in-time as the task unfolds. Upfront is simple and predictable; agentic is adaptive but less controllable. Most real agents blend the two.
+- **The window is finite — and bigger isn't better.** Context costs tokens (money + latency) and suffers **context rot** / lost-in-the-middle: as the window fills, the model attends worse, especially to the middle. A focused 2K-token context often beats a 100K-token dump.
+- **Memory and the KB.** Long-term memory is knowledge the agent accumulates — and the moment it persists and is reused, it *is* part of the knowledge base, subject to every quality dimension from L1. (How it gets back there is L7.)
+- **Provenance flows through (L4).** If retrieved knowledge carries its source span into context, the agent can cite — and you can check the answer. Drop provenance at assembly time and grounded facts blur with the model's guesses.
 
 ## Patterns
 
-- **Pick the method from the discovery question.** "What's authoritative?" → centrality. "What topics/silos exist?" → communities. "What's missing?" → link prediction. "Who knows this?" → paths + centrality.
-- **Use link prediction as a gap radar.** Run it periodically; high-confidence missing edges are a prioritized to-do list for L9.
-- **Graph similarity vs. embedding similarity.** Embeddings (L2) capture *semantic* likeness from text; graph methods capture *structural/relational* likeness. They disagree usefully — combine them.
-- **Discovery proposes; it does not commit.** Every output is a suggestion for a human (or L9's loop) to review, never an automatic write.
+- **Assemble the minimal sufficient context.** Relevance over volume; the goal is the *right* knowledge in the window, not the *most*.
+- **Prefer just-in-time for open-ended tasks.** Give the agent retrieval/graph tools (L5) so it pulls what it needs when it needs it, instead of pre-stuffing everything.
+- **Carry provenance and structure.** Keep source spans; lay context out in labeled sections so the model can find and cite the right piece.
+- **Refresh context across long runs.** Re-retrieve as the task evolves; don't reason for 20 turns on the context you assembled at turn one.
 
 ## Anti-patterns — and how they materialize
 
-- **Over-reading centrality.** A node is high-betweenness because of an extraction artifact (an un-resolved hub entity from skipping L4 dedup), and the team "discovers" a fake key concept. The algorithm measured the data's defects, not the domain.
-- **Communities as truth.** Louvain returns 12 clusters; someone reorganizes the whole KB around them. Re-run with a different resolution → 7 clusters. The partition was a *view*, not a fact.
-- **Link prediction without review.** Predicted edges get auto-added; a few are wrong; the graph now asserts relations that never existed and GraphRAG (L5) reasons over them. Prediction is a *suggestion*, not a write.
-- **GNN cannon for a degree-count problem.** A team trains a GNN to find important docs when `ORDER BY degree` answered it in one line.
+- **Context maximalism.** "Stuff the whole KB in — the model has 200K tokens." Cost and latency spike, answer quality *drops* via context rot, and the one relevant fact is buried mid-window where the model ignores it.
+- **Stale context.** A cached retrieval serves last month's policy into the agent's window; the KB was fresh (L1), but freshness failed *at serve time*. Context is a place staleness re-enters.
+- **Provenance stripped at assembly.** Retrieval had sources; the assembler concatenated raw text; the agent now can't cite, and a hallucinated sentence sits indistinguishably next to three real facts.
+- **Assemble-once.** Context is built at the first turn and never refreshed; ten tool calls later the agent is reasoning over a stale working set and contradicts what it just learned.
 
 ## The quality dimension this lesson moves
 
-**Completeness & relevance.** Link prediction and community gaps reveal what's *missing or disconnected* (completeness); centrality and similarity surface what *matters most* (relevance). Discovery turns the static graph into a tool that finds its own defects — feeding directly into L9.
+**Relevance & findability — at serve time, under a budget.** Every earlier lesson made the knowledge good and retrievable; this lesson decides whether the right slice actually reaches the agent's reasoning, efficiently. A correct, fresh, findable fact that never makes it into context might as well not exist.
 
 ## Hands-on for lesson 6
 
-**The discovery lab.** Use the L3–L4 support-knowledge graph.
+**Assemble the context.** Take a task and a query (reuse L5) against the support-knowledge graph.
 
-- **Mechanic** — run centrality and read off the load-bearing policies (and tie back to L1: an error here poisons many answers). Run community detection and watch topics/silos emerge — then change the resolution and watch them wobble. Run link prediction and get a *ranked list of missing documentation edges*. Build a tiny gap-finder and expertise-locator from these. Then inject an un-resolved duplicate hub (a skipped-L4 defect) and watch centrality crown a fake concept.
-- **What the student feels** — each method answers a specific discovery question; outputs are *suggestions* to interpret, not verdicts; and the methods inherit every defect from L3/L4.
-- **Skills exercised** — matching method to discovery task, sober interpretation, turning a prediction into a prioritized, reviewable fix.
+- **Mechanic** — assemble the agent's context three ways: (1) dump everything retrievable, (2) top-k focused retrieval, (3) agentic just-in-time (the agent calls a retrieval/graph tool as needed). Compare answer quality, token cost, and latency. Inflate the dump until **context rot** appears — quality drops as size grows. Then assemble *with* provenance and watch the agent produce cited answers; strip it and watch grounding vanish.
+- **What the student feels** — more context is not better; relevance and placement beat volume; just-in-time adapts where pre-stuffing can't; provenance must survive assembly.
+- **Skills exercised** — minimal-sufficient context, upfront vs. just-in-time, diagnosing context rot, carrying provenance to the agent.
 
 ## To discuss
 
-- Which of your KM pains is really a discovery question in disguise — gap detection, dedup, topic finding, expertise location?
-- Link prediction proposes 200 missing edges — who reviews them, and at what confidence do you auto-apply vs. queue for a human? (Straight into L9.)
+- For your agents, what fraction of context should be pre-loaded vs. fetched just-in-time — and who owns that budget?
+- Long-term memory that persists is now part of your KB. Is it held to the L1 scorecard, or is it a back door for unmanaged knowledge? (Sets up L7.)

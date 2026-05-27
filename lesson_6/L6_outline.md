@@ -1,23 +1,23 @@
-# Lesson 6 — Knowledge Discovery
+# Lesson 6 — Providing Context to Agents
 
 **Number:** L6
-**Tagline:** Finding what you didn't know to ask for. Graph methods — centrality, communities, link prediction — turn a populated knowledge base into new, latent knowledge.
-**Lifecycle stage:** Use — discover (the "tell me what I don't know" path)
-**Quality dimension in focus:** Completeness & relevance
+**Tagline:** An agent doesn't browse your knowledge base — you assemble its *context*. Getting the right knowledge into a finite context window, at the right moment, is its own discipline.
+**Lifecycle stage:** Serve — deliver knowledge to agents as context (the forward pass)
+**Quality dimension in focus:** Relevance & findability — cashed in at serve time, under a token budget
 
 ## What we cover
-- Discovery vs. querying (L5): surfacing latent knowledge vs. retrieving known knowledge
-- Centrality — what's authoritative, central, or a single point of failure
-- Community detection — clustering related knowledge, finding topics and silos
-- Link prediction — suggesting relations that should exist but are missing (the gap radar)
-- Node embeddings and GNNs, conceptually — when to reach for them (and when not)
+- The shift from "user looks things up" to "system assembles an agent's context" — and why context is the unit that matters
+- What's in an agent's context: instructions, retrieved knowledge (L5), tool results, memory, conversation history — the KB is one input among several
+- Context engineering: choosing what goes in the finite window — upfront vs. just-in-time (agentic) retrieval
+- Context window limits, cost/latency, and "context rot" — why more context is often worse
+- Short-term vs. long-term memory, and carrying provenance (L4) into context so the agent can cite
 
 ## Skills you unlock
-- Match a KM discovery task — gap detection, dedup, topic/silo finding, expertise location — to the right graph method
-- Interpret centrality and community results without over-reading them
-- Use link prediction to surface missing knowledge before users hit the gap
-- Know when a graph method beats embedding similarity, and vice versa
-- Turn a discovery output into a prioritized, reviewable action
+- Assemble the minimal sufficient context for a task, relevance over volume
+- Choose between pre-loading context and letting the agent fetch it just-in-time
+- Diagnose context rot and lost-in-the-middle failures
+- Carry provenance into context so answers stay grounded and citable
+- Budget the context window against cost, latency, and quality
 
 ## Tools and examples
-Graph-methods lab (centrality, communities, link prediction on the L3–L4 graph) · gap-finder built on link prediction · topic/silo map from community detection · expertise locator from paths and centrality.
+Context assembler (same query, several context strategies side by side) · context-rot demo (answer quality vs. context size) · grounded-vs-ungrounded context with citations.

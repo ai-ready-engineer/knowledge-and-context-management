@@ -34,7 +34,7 @@ For each quality dimension this course teaches the same three moves:
 
 - **Understand it** — what the dimension means and where defects come from (a stale source, a bad extraction, a missing link).
 - **Measure it** — the concrete probe: gold questions for coverage, contradiction detection for consistency, last-updated + decay model for freshness.
-- **Improve it** — the lifecycle stage that fixes it (representation, the graph, extraction, or the improvement loop in L9).
+- **Improve it** — the lifecycle stage that fixes it (representation, the graph, extraction, or the improvement loop in L7).
 
 ## Hands-on for lesson 1
 

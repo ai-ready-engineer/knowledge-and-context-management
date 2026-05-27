@@ -21,7 +21,7 @@ Put three questions on screen: an exact lookup, a "find me a similar past ticket
 - Retrieval-mode explorer: fire the three questions through all three modes; show which mode wins which.
 - The failure: route the structured question through semantic search → confident, wrong, nearest-chunk answer.
 - Headline: multi-hop question, vector-RAG vs. GraphRAG, side by side. GraphRAG returns the answer *and* the cited path; vector-RAG guesses.
-- Ask something absent from the graph → system says "not in the knowledge base." Land it: that "not found" is a gold signal for L6/L9.
+- Ask something absent from the graph → system says "not in the knowledge base." Land it: that "not found" is a gold signal for L4/L7.
 
 ## Close
 
@@ -29,6 +29,6 @@ Single takeaway: **Querying is matching the retrieval mode to the question and g
 
 ## Notes to self
 
-- Keep this lesson about *known questions*. Resist drifting into "find what's missing" — that's L6 discovery.
+- Keep this lesson about *known questions*. Resist drifting into "find what's missing" — that's L4 discovery.
 - The "not found → signal" beat is the explicit bridge to discovery and improvement; plant it deliberately.
 - Reuse the same multi-hop question from L3's open so the payoff lands ("remember this from two lessons ago?").

@@ -1,10 +1,10 @@
 # Lesson 5 — Knowledge Querying
 
-We now have a populated graph (L3 + L4). There are two ways to *use* it: **query** what you already know is there, and **discover** what you don't (L6). This lesson is querying — the "I know what I'm looking for" path.
+We now have a populated graph (L3 + L4). There are two ways to *use* it: **query** what you already know is there, and **discover** what you don't (L4). This lesson is querying — the "I know what I'm looking for" path.
 
 ## Concepts
 
-- **Querying vs. discovery.** Querying answers a question you can pose: "what's the refund window for Enterprise?", "which customers are on Plan X?". Discovery (L6) surfaces things you didn't know to ask: a missing link, a hidden cluster, an emerging topic. Same knowledge base, two very different jobs.
+- **Querying vs. discovery.** Querying answers a question you can pose: "what's the refund window for Enterprise?", "which customers are on Plan X?". Discovery (L4) surfaces things you didn't know to ask: a missing link, a hidden cluster, an emerging topic. Same knowledge base, two very different jobs.
 - **Retrieval modes — match the mode to the question.**
   - **Keyword / lexical** — exact and boolean match. Precise when you know the term; blind to synonyms and paraphrase.
   - **Semantic / embedding** (L2 vectors) — "find things *like* this." Robust to phrasing; opaque and can't do exact filters or relations.
@@ -20,7 +20,7 @@ We now have a populated graph (L3 + L4). There are two ways to *use* it: **query
 
 - **Choose the retrieval mode from the question shape.** Exact/structured → graph query. "Find similar" → semantic. Multi-hop/relational → traversal/GraphRAG. Often: semantic to find the entry point, then traverse.
 - **Always cite.** Return the source span (L4) or the graph path. An uncited answer can't be trusted or improved.
-- **Make "I don't know" first-class.** If retrieval finds nothing relevant, say so — don't let the LLM paper over a gap (which is exactly the signal L9 wants).
+- **Make "I don't know" first-class.** If retrieval finds nothing relevant, say so — don't let the LLM paper over a gap (which is exactly the signal L7 wants).
 
 ## Anti-patterns — and how they materialize
 
@@ -44,4 +44,4 @@ We now have a populated graph (L3 + L4). There are two ways to *use* it: **query
 ## To discuss
 
 - For your traffic, what's the mix of exact / similar / multi-hop questions? That sets your retrieval architecture.
-- Every "not found" is a gap signal — where does it go? (Straight into L6 discovery and L9 improvement.)
+- Every "not found" is a gap signal — where does it go? (Straight into L4 discovery and L7 improvement.)

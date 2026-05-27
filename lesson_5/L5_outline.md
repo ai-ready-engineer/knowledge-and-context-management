@@ -6,7 +6,7 @@
 **Quality dimension in focus:** Findability & relevance
 
 ## What we cover
-- The two modes of using knowledge: **querying** (retrieve what's known) vs. **discovery** (find what's unknown, L6) — this lesson is querying
+- The two modes of using knowledge: **querying** (retrieve what's known) vs. **discovery** (find what's unknown, L4) — this lesson is querying
 - Keyword vs. semantic (embedding) retrieval — exact match vs. "find similar"
 - Structured queries over the graph — SPARQL/Cypher, traversal, paths, multi-hop questions
 - RAG and GraphRAG — grounding an LLM's answer in retrieved knowledge, with citations

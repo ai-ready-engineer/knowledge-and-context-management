@@ -11,7 +11,8 @@
 
     <div class="hero">
       <h1>Knowledge and Context Management</h1>
-      <p class="subtitle" style="font-size:1.4rem; line-height:1.5; font-style:italic; color:var(--color-text); margin-top:1.25rem;">Your AI is only as good as the knowledge behind it. Learn to represent it, connect it, extract it, query it, discover from it, and keep it good.</p>
+      <p class="subtitle" style="font-size:1.4rem; line-height:1.5; font-style:italic; color:var(--color-text); margin-top:1.25rem;">Your AI is only as good as the knowledge behind it. Learn to represent it, connect it, extract it, query it, serve it to agents, and keep it good.</p>
+      <p class="hero-meta">Course outline — lessons below. Detailed content and hands-on labs in progress.</p>
     </div>
 
     <section>
@@ -31,7 +32,7 @@
           <ul>
             <li><strong>Engineers and engineering managers building with AI:</strong> RAG, agents, and assistants are only as good as the knowledge they sit on. Learn to build that knowledge layer deliberately.</li>
             <li><strong>Product managers and knowledge owners:</strong> Turn a pile of documents into a measurable, improvable knowledge asset — and know when it is good enough to ship.</li>
-            <li><strong>Data and platform teams:</strong> Choose representations, model a knowledge graph, design extraction pipelines, and decide what to query vs. what to discover.</li>
+            <li><strong>Data and platform teams:</strong> Choose representations, model a knowledge graph, design extraction pipelines, and serve the right context to agents.</li>
             <li><strong>Executives</strong> <span class="text-muted">(compact course)</span><strong>:</strong> Understand why knowledge quality is now a product-quality lever, and what to ask the teams who own it.</li>
           </ul>
         </div>
@@ -40,33 +41,24 @@
       <details class="topic" open>
         <summary><h2>How the course works</h2></summary>
         <div class="details-content">
-          <p>Every lesson is built the same way:</p>
-          <ul>
-            <li>It has <strong>tiles describing what we cover</strong>. You can see if you already know the content, need a refresher, or it is new for you.</li>
-            <li>It takes <strong>one stage of the knowledge lifecycle</strong> — represent, connect, extract, query, discover, provide context, backpropagate, improve — so you meet it on its own before it combines with the others.</li>
-            <li>It keeps <strong>quality of knowledge as the through-line</strong>: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.</li>
-            <li>It contrasts <strong>good practice against the trap</strong> that fools people — shown through a worked example.</li>
-            <li>It hands you a <strong>hands-on example</strong> you can poke at, plus an optional code path for those who want to go deeper.</li>
-          </ul>
-          <p>The lifecycle is a loop, not a line: Lesson 9 consolidates the signals from querying (L5), discovery (L6), context-serving (L7), and agentic backpropagation (L8), and feeds fixes back into representation, the graph, and extraction.</p>
+          <p>The course follows <strong>one stage of the knowledge lifecycle</strong> per lesson — represent, connect, extract &amp; discover, query, provide context, improve — keeping <strong>quality of knowledge</strong> as the through-line: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.</p>
+          <p>The lifecycle is a loop, not a line: the final lesson consolidates the signals from extraction &amp; discovery (L4), querying (L5), context-serving (L6), and the agents themselves, and feeds fixes back into representation, the graph, and extraction.</p>
+          <p>The <strong>agent loop</strong> runs through the second half: knowledge flows out to agents as context (L6, the forward pass), and agent feedback flows back to update the knowledge (L7, "agentic backpropagation").</p>
         </div>
       </details>
 
       <details class="topic" open>
         <summary><h2>What you will learn</h2></summary>
         <div class="details-content">
-          <p>By the end of the course, "knowledge" will look like a managed, measurable asset — not a folder of documents you hope someone reads.</p>
-          <p>You will be able to:</p>
+          <p>By the end of the course, "knowledge" will look like a managed, measurable asset — not a folder of documents you hope someone reads. You will be able to:</p>
           <ul>
             <li>Define what quality of knowledge means for your domain, and measure it.</li>
             <li>Choose how to represent knowledge — text, schemas, taxonomies, embeddings, graphs — for the job at hand.</li>
             <li>Model a knowledge graph and decide when it beats a plain vector store.</li>
-            <li>Extract structured knowledge from messy sources, with LLMs, and know how much to trust it.</li>
+            <li>Extract structured knowledge from messy sources, and mine the graph to discover what's important and missing.</li>
             <li>Query knowledge well — keyword, semantic, structured, RAG, and GraphRAG — and tell grounded answers from guesses.</li>
-            <li>Discover what you didn't know to ask: importance, communities, and missing links via graph methods.</li>
             <li>Provide the right context to agents — grounded, fresh, and within the window's budget.</li>
-            <li>Backpropagate agentic feedback into the knowledge base without poisoning it.</li>
-            <li>Run an improvement loop that detects gaps, staleness, and contradictions and closes them.</li>
+            <li>Backpropagate agentic feedback and run an improvement loop that keeps the knowledge fresh, complete, and correct.</li>
           </ul>
         </div>
       </details>
@@ -83,268 +75,49 @@
       </details>
 
       <h2 style="margin-top:2.5rem;">The lessons</h2>
-      <p>Nine <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract → query → discover → provide context → backpropagate → improve</em>, with quality of knowledge as the through-line. The second half makes the <strong>agent loop</strong> explicit — knowledge flows out to agents as context (L7), and agent feedback flows back to update the knowledge (L8). Each session isolates one stage and ties it back to knowledge quality, and comes with <em>optional</em> hands-on examples.</p>
+      <p>Seven <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract &amp; discover → query → provide context → improve</em>. Titles below; detailed content and hands-on labs are in progress.</p>
 
       <div class="modules-grid">
         <div class="module-card">
           <div class="number">L1</div>
           <div class="title">Quality of Knowledge</div>
           <p class="description">What "knowledge" is, what makes it good, and how to measure it — the scorecard the rest of the course optimizes.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>Data → information → knowledge: a useful distinction, and where the tidy DIKW pyramid lies to you</li>
-              <li>The dimensions of knowledge quality: correctness, completeness/coverage, consistency, freshness, relevance, provenance, findability, actionability</li>
-              <li>How to measure each dimension — gold questions, answerability, citation correctness, contradiction rate, staleness</li>
-              <li>Why in the age of AI the quality of the knowledge base sets the ceiling on the quality of every answer the AI gives (garbage in, garbage out)</li>
-              <li>Building a knowledge-quality scorecard you can actually track</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Name the quality dimensions that matter for your domain and weight them</li>
-              <li>Turn "is our knowledge good?" into a measurable scorecard</li>
-              <li>Connect a drop in AI answer quality to the knowledge defect behind it</li>
-              <li>Set a "good enough to ship" bar for a knowledge base</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>All of them — at once.</strong> This lesson lays out the full scorecard. Every later lesson improves one or two of these dimensions; here you learn what they are and how to measure them.</p>
-          </details>
         </div>
 
         <div class="module-card">
           <div class="number">L2</div>
           <div class="title">Knowledge Representation</div>
-          <p class="description">The forms knowledge can take — text, schemas, taxonomies, triples, embeddings — and how the choice decides what you can later do with it.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>The representation spectrum: unstructured text, semi-structured, structured (tables, taxonomies, ontologies, triples), and vector/embedding representations</li>
-              <li>Symbolic vs. sub-symbolic knowledge — what each makes easy and what each makes impossible</li>
-              <li>Taxonomies, ontologies, and schemas: the vocabulary that makes knowledge interoperable</li>
-              <li>Chunking and embeddings for RAG — what gets captured, what gets lost</li>
-              <li>Hybrid representations, and choosing one for a concrete use case</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Pick a representation that fits the questions you need to answer</li>
-              <li>Sketch a taxonomy or lightweight schema for a domain</li>
-              <li>Reason about what an embedding representation can and cannot retrieve</li>
-              <li>Combine representations instead of forcing everything into one</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Findability &amp; consistency.</strong> The representation decides what can be retrieved, compared, and kept non-contradictory. A bad representation caps quality before a single answer is generated.</p>
-          </details>
+          <p class="description">Text, schemas, taxonomies, triples, embeddings — and how the choice decides what you can later do with the knowledge.</p>
         </div>
 
         <div class="module-card">
           <div class="number">L3</div>
           <div class="title">Knowledge Graphs</div>
-          <p class="description">Connecting facts into a graph of entities and relations — the structure we'll populate, query, and mine. What a KG is, and when it beats a vector store.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>Anatomy of a knowledge graph: entities, relations, properties, and the schema/ontology on top</li>
-              <li>RDF triples vs. labeled property graphs; a first look at SPARQL and Cypher</li>
-              <li>Why connection is its own representation decision — the graph is the structure the next lessons depend on</li>
-              <li>KG vs. vector store — relational/multi-hop questions vs. "find similar"</li>
-              <li>When a knowledge graph is worth the cost — and when it is not</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Model a domain as entities and relations</li>
-              <li>Read and write basic graph queries (SPARQL / Cypher)</li>
-              <li>Decide between a graph, a vector store, or both for a use case</li>
-              <li>Design the schema that extraction (L4) will populate</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Completeness &amp; consistency.</strong> A graph makes coverage gaps visible as missing edges and contradictions as conflicting triples — defects that stay hidden in a pile of documents.</p>
-          </details>
+          <p class="description">Connecting facts into a graph of entities and relations — the structure we populate, query, and mine.</p>
         </div>
 
         <div class="module-card">
           <div class="number">L4</div>
-          <div class="title">Knowledge Extraction</div>
-          <p class="description">Filling the graph. Turning messy sources into the entities, relations, and facts the schema asked for — and knowing how much to trust the result.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>From documents to structure: entity, relation, and event extraction — filling the L3 schema</li>
-              <li>Classic IE (NER, rules, patterns) vs. LLM-based extraction with structured outputs</li>
-              <li>Schema-guided extraction and function calling — making an LLM emit exactly the nodes and edges the graph expects</li>
-              <li>Entity resolution, deduplication, and normalization — the same thing said five ways</li>
-              <li>Extraction quality: precision/recall, hallucination risk, and keeping provenance</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Design an extraction pipeline from source to graph-ready records</li>
-              <li>Use an LLM to extract to the L3 schema, and constrain it</li>
-              <li>Resolve and merge entities that refer to the same thing</li>
-              <li>Evaluate extraction quality and trace every fact back to its source</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Correctness &amp; provenance.</strong> Extraction is where errors and hallucinations enter the knowledge base — and where you either capture the source of every fact or lose the ability to trust it later.</p>
-          </details>
+          <div class="title">Knowledge Extraction &amp; Discovery</div>
+          <p class="description">Fill the graph from messy sources, then mine its structure for what's important, clustered, and missing.</p>
         </div>
 
         <div class="module-card">
           <div class="number">L5</div>
           <div class="title">Knowledge Querying</div>
-          <p class="description">Getting out what you already know. Search, semantic retrieval, structured queries, RAG, and GraphRAG — when you know what you're looking for.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>The two modes of using knowledge: querying (retrieve what's known) vs. discovery (find what's unknown, L6)</li>
-              <li>Keyword vs. semantic (embedding) retrieval — exact match vs. "find similar"</li>
-              <li>Structured queries over the graph — SPARQL/Cypher, traversal, paths, multi-hop questions</li>
-              <li>RAG and GraphRAG — grounding an LLM's answer in retrieved knowledge, with citations</li>
-              <li>Combining retrieval modes, and reading what a query can and can't guarantee</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Pick the retrieval mode that fits the question — keyword, semantic, structured, or traversal</li>
-              <li>Write graph queries that answer multi-hop and relational questions</li>
-              <li>Build a RAG/GraphRAG answer that cites its sources (using L4 provenance)</li>
-              <li>Diagnose a bad answer as a retrieval failure, not a model failure</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Findability &amp; relevance.</strong> Querying is where findability is cashed in: the right mode retrieves the right knowledge, and citations make relevance checkable. A bad answer here is usually a retrieval failure, not a model one.</p>
-          </details>
+          <p class="description">Getting out what you know — search, semantic retrieval, structured queries, RAG, and GraphRAG.</p>
         </div>
 
         <div class="module-card">
           <div class="number">L6</div>
-          <div class="title">Knowledge Discovery</div>
-          <p class="description">Finding what you didn't know to ask for. Graph methods — centrality, communities, link prediction — turn the knowledge base into new, latent knowledge.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>Discovery vs. querying (L5): surfacing latent knowledge vs. retrieving known knowledge</li>
-              <li>Centrality — what's authoritative, central, or a single point of failure</li>
-              <li>Community detection — clustering related knowledge, finding topics and silos</li>
-              <li>Link prediction — suggesting relations that should exist but are missing (the gap radar)</li>
-              <li>Node embeddings and GNNs, conceptually — when to reach for them (and when not)</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Match a discovery task — gap detection, dedup, topic/silo finding, expertise location — to the right method</li>
-              <li>Interpret centrality and community results without over-reading them</li>
-              <li>Use link prediction to surface missing knowledge before users hit the gap</li>
-              <li>Turn a discovery output into a prioritized, reviewable action</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Completeness &amp; relevance.</strong> Discovery reveals what's missing or disconnected (link prediction, silos) and what matters most (centrality) — turning a static graph into a tool that finds its own gaps.</p>
-          </details>
+          <div class="title">Providing Context to Agents</div>
+          <p class="description">Assembling the right knowledge into an agent's finite context window, at the right moment — the "context" half of the course.</p>
         </div>
 
         <div class="module-card">
           <div class="number">L7</div>
-          <div class="title">Providing Context to Agents</div>
-          <p class="description">An agent doesn't browse your knowledge — you assemble its context. Getting the right knowledge into a finite window, at the right moment, is its own discipline.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>The shift from "user looks things up" to "system assembles an agent's context" — and why context is the unit that matters</li>
-              <li>What's in an agent's context: instructions, retrieved knowledge (L5), tool results, memory, conversation history</li>
-              <li>Context engineering: upfront vs. just-in-time (agentic) retrieval</li>
-              <li>Context window limits, cost/latency, and "context rot" — why more context is often worse</li>
-              <li>Short- vs. long-term memory, and carrying provenance (L4) into context so the agent can cite</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Assemble the minimal sufficient context for a task — relevance over volume</li>
-              <li>Choose between pre-loading context and letting the agent fetch it just-in-time</li>
-              <li>Diagnose context rot and lost-in-the-middle failures</li>
-              <li>Carry provenance into context so answers stay grounded and citable</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Relevance &amp; findability — at serve time, under a budget.</strong> A correct, fresh, findable fact that never reaches the agent's window might as well not exist. This is the "context" half of the course.</p>
-          </details>
-        </div>
-
-        <div class="module-card">
-          <div class="number">L8</div>
-          <div class="title">Knowledge Backpropagation from Agentic Feedback</div>
-          <p class="description">Agents using your knowledge are the richest signal of what it's missing or getting wrong. Flow that feedback back into the knowledge — without poisoning the well.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>The backpropagation metaphor: agents are the forward pass (L7); their outcomes are an error signal that flows back to update the knowledge</li>
-              <li>The signals agents emit: retrieval hits/misses, tool failures, dead-ends, user corrections, repeated unmet needs, facts discovered mid-task</li>
-              <li>Distilling reusable knowledge from agent trajectories — a durable KB entry, not a raw log</li>
-              <li>Credit assignment: tracing a success or failure to the specific knowledge responsible (via L4 provenance)</li>
-              <li>The danger: feedback loops and model collapse — agents writing their own hallucinations back</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Instrument agents to emit structured feedback as first-class knowledge signals</li>
-              <li>Distill trajectories into clean, deduplicated candidate knowledge</li>
-              <li>Trace credit and blame to specific facts using provenance</li>
-              <li>Recognize and prevent contamination / self-reinforcing feedback loops</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Completeness, freshness &amp; correctness — revealed through use.</strong> Agents in production are the earliest, richest signal of what the knowledge is missing or getting wrong. Backprop turns that into candidate updates; L9 gates and applies them.</p>
-          </details>
-        </div>
-
-        <div class="module-card">
-          <div class="number">L9</div>
-          <div class="title">Knowledge Improvement</div>
-          <p class="description">Knowledge is a living asset that decays. The loop that detects gaps, staleness, and contradictions — and closes them with humans and AI.</p>
-          <details class="objectives">
-            <summary>Content</summary>
-            <ul>
-              <li>Knowledge decays: it goes stale, develops gaps, and accumulates contradictions</li>
-              <li>The improvement loop: detect → prioritize → fix → verify, scored against the L1 scorecard</li>
-              <li>Feedback signals: failed queries (L5), discovery findings (L6), context failures (L7), agentic backpropagation (L8), usage, user feedback</li>
-              <li>Using AI to improve KM: detecting contradictions, proposing updates, filling gaps, summarizing</li>
-              <li>Governance: the L8 write-back gate, human-in-the-loop review, provenance (L4), and not letting AI quietly rewrite the truth</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Skills you unlock</summary>
-            <ul>
-              <li>Design a knowledge-improvement loop with explicit detect/fix/verify stages</li>
-              <li>Turn querying, discovery, context, and agentic-feedback signals into a prioritized backlog</li>
-              <li>Combine human review with AI assistance safely — and gate agent-generated write-back</li>
-              <li>Close the loop: feed quality metrics back to representation, the graph, and extraction</li>
-            </ul>
-          </details>
-          <details class="objectives">
-            <summary>Quality dimension in focus</summary>
-            <p><strong>Freshness &amp; the whole scorecard, over time.</strong> The lifecycle becomes a loop: this lesson keeps every dimension from L1 from quietly degrading as the world moves.</p>
-          </details>
+          <div class="title">Knowledge Improvement &amp; Agentic Feedback</div>
+          <p class="description">Backpropagate agent feedback into the knowledge, and run the loop that keeps it fresh, complete, and correct — without poisoning the well.</p>
         </div>
       </div>
 

@@ -16,16 +16,14 @@ Part of the [AI-Ready Engineer](https://ai-ready-engineer.github.io/) series. Si
 
 ## Lessons
 
-Lifecycle spine: *represent → connect → extract → query → discover → provide context → backpropagate → improve*, with quality of knowledge as the through-line.
+Lifecycle spine: *represent → connect → extract & discover → query → provide context → improve*, with quality of knowledge as the through-line.
 
 1. Quality of Knowledge
 2. Knowledge Representation
 3. Knowledge Graphs
-4. Knowledge Extraction
+4. Knowledge Extraction & Discovery
 5. Knowledge Querying
-6. Knowledge Discovery
-7. Providing Context to Agents
-8. Knowledge Backpropagation from Agentic Feedback
-9. Knowledge Improvement
+6. Providing Context to Agents
+7. Knowledge Improvement & Agentic Feedback
 
 Content by Fabio Casati.
