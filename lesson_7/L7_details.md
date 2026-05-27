@@ -1,56 +1,49 @@
-# Lesson 7 — Knowledge Improvement
+# Lesson 7 — Providing Context to Agents
 
-This is the lesson that turns the lifecycle from a line into a loop. Everything from L1–L6 produces a knowledge base; this lesson keeps it good as the world moves — and feeds what it learns back to the start.
+This is the "context" half of the course made concrete. We have knowledge (L1–L4) and ways to get it out (L5–L6). Now an **agent** needs it — and an agent doesn't browse a knowledge base. You assemble the **context** it reasons over. This is the forward pass: knowledge flows out to the agent.
 
 ## Concepts
 
-- **Knowledge decays.** Even a perfect knowledge base degrades:
-  - **Staleness** — the world changed; the knowledge didn't (a policy updated, a product renamed).
-  - **Gaps** — new questions arrive with no supporting knowledge (the L5 "not found" signal; the L6 link-prediction backlog).
-  - **Contradictions** — new facts conflict with old ones (the L3 conflicting edges).
-  - **Drift** — terminology and usage shift; old representations stop matching how people ask.
-- **The improvement loop.** A disciplined cycle, scored against the L1 scorecard:
-  1. **Detect** — find defects via signals and probes.
-  2. **Prioritize** — fix what hurts most: high-traffic + high-impact first.
-  3. **Fix** — update, add, merge, retire — at the right lifecycle stage (re-represent, fix the graph, re-extract).
-  4. **Verify** — re-run the L1 gold questions; confirm the scorecard moved the right way and nothing regressed.
-- **Feedback signals — where defects announce themselves.**
-  - **Usage** — what's retrieved a lot (keep it pristine) vs. never (dead weight).
-  - **Failed / unanswered queries (L5)** — the single richest gap signal: questions the KB couldn't answer, surfaced honestly by "not found."
-  - **Discovery findings (L6)** — predicted-missing edges, suspected duplicates, silos.
-  - **User feedback** — thumbs-down, corrections, escalations.
-  - **AI failures** — wrong or unsupported answers traced back (via L4 provenance) to the defective source.
-- **AI as a KM co-worker.** The same models that consume knowledge can help maintain it: detect contradictions across the graph, propose updates from new sources, draft answers for gaps, summarize and deduplicate. Powerful — and dangerous if unmanaged.
-- **Governance.** Provenance (L4) is what makes safe improvement possible: you can see what changed, why, and from which source. Human-in-the-loop review for anything high-impact. The AI *proposes*; a human *approves* the writes that matter.
+- **Context is the unit, not the document.** The agent reasons over whatever is in its context window *right now*. The best knowledge base in the world is useless if the relevant fact isn't in context when the agent thinks. Serving is where findability (L2) and relevance are finally cashed in.
+- **What's in an agent's context.** It's a budget shared by many tenants:
+  - **Instructions** — system prompt, role, policies.
+  - **Retrieved knowledge** — the L5 query results (chunks, subgraphs, facts).
+  - **Tool results** — outputs the agent fetched mid-task (ephemeral knowledge).
+  - **Memory** — short-term (this conversation) and long-term (persisted across sessions).
+  - **Conversation history** — the running dialogue.
+  The KB-derived knowledge is one slice; context engineering is allocating the budget across all of them.
+- **Upfront vs. just-in-time (agentic) retrieval.** Either pre-load the context you think the agent needs, or give the agent retrieval *tools* and let it pull knowledge just-in-time as the task unfolds. Upfront is simple and predictable; agentic is adaptive but less controllable. Most real agents blend the two.
+- **The window is finite — and bigger isn't better.** Context costs tokens (money + latency) and suffers **context rot** / lost-in-the-middle: as the window fills, the model attends worse, especially to the middle. A focused 2K-token context often beats a 100K-token dump.
+- **Memory and the KB.** Long-term memory is knowledge the agent accumulates — and the moment it persists and is reused, it *is* part of the knowledge base, subject to every quality dimension from L1. (How it gets back there is L8.)
+- **Provenance flows through (L4).** If retrieved knowledge carries its source span into context, the agent can cite — and you can check the answer. Drop provenance at assembly time and grounded facts blur with the model's guesses.
 
 ## Patterns
 
-- **Drive the loop with signals, not opinions.** Unanswered queries (L5) and discovery findings (L6) are a ranked, evidence-based backlog — far better than "someone thinks the FAQ is outdated."
-- **Fix at the right stage.** A contradiction might be a stale source (re-extract, L4), a bad merge (fix entity resolution, L4), a modeling problem (revise the schema, L3), or a genuine conflict (human decision) — diagnose before editing.
-- **Always verify against the scorecard.** A fix that improves one gold question while breaking three isn't an improvement. Close the loop with measurement, not vibes.
-- **AI proposes, human disposes — proportional to impact.** Auto-apply low-risk, high-confidence changes; queue high-impact ones for review.
+- **Assemble the minimal sufficient context.** Relevance over volume; the goal is the *right* knowledge in the window, not the *most*.
+- **Prefer just-in-time for open-ended tasks.** Give the agent retrieval/graph tools (L5) so it pulls what it needs when it needs it, instead of pre-stuffing everything.
+- **Carry provenance and structure.** Keep source spans; lay context out in labeled sections so the model can find and cite the right piece.
+- **Refresh context across long runs.** Re-retrieve as the task evolves; don't reason for 20 turns on the context you assembled at turn one.
 
 ## Anti-patterns — and how they materialize
 
-- **Write-only knowledge base.** Everyone adds; nobody retires. It grows, contradictions pile up, freshness rots, and retrieval quality slowly dies while the volume metric looks great.
-- **Letting AI rewrite the truth.** An LLM "improves" articles in bulk; it smooths language and silently changes a refund window from 30 to 45 days. No provenance, no review — the knowledge base now confidently asserts a fabrication at scale.
-- **Fixing the loud, ignoring the long tail.** The team fixes whatever the latest escalation pointed at; the systematic gap signal (hundreds of quiet unanswered queries from L5) is never mined.
-- **Improvement without verification.** Changes ship un-measured; the scorecard isn't re-run; regressions accumulate invisibly until a big failure.
+- **Context maximalism.** "Stuff the whole KB in — the model has 200K tokens." Cost and latency spike, answer quality *drops* via context rot, and the one relevant fact is buried mid-window where the model ignores it.
+- **Stale context.** A cached retrieval serves last month's policy into the agent's window; the KB was fresh (L1), but freshness failed *at serve time*. Context is a place staleness re-enters.
+- **Provenance stripped at assembly.** Retrieval had sources; the assembler concatenated raw text; the agent now can't cite, and a hallucinated sentence sits indistinguishably next to three real facts.
+- **Assemble-once.** Context is built at the first turn and never refreshed; ten tool calls later the agent is reasoning over a stale working set and contradicts what it just learned.
 
 ## The quality dimension this lesson moves
 
-**Freshness — and the entire L1 scorecard, sustained over time.** The other lessons each lift a dimension once; this lesson is what keeps *all of them* from decaying. The lifecycle closes: improvement signals feed back to representation (L2), the graph (L3), and extraction (L4); querying (L5) and discovery (L6) are the instruments that generate the signals.
+**Relevance & findability — at serve time, under a budget.** Every earlier lesson made the knowledge good and retrievable; this lesson decides whether the right slice actually reaches the agent's reasoning, efficiently. A correct, fresh, findable fact that never makes it into context might as well not exist.
 
 ## Hands-on for lesson 7
 
-**Close the loop.** Start from the L1–L6 support-knowledge base, now "aged": a policy changed (stale), some queries return "not found" (gaps), and two sources conflict.
+**Assemble the context.** Take a task and a query (reuse L5) against the support-knowledge graph.
 
-- **Mechanic** — ingest a log of usage + unanswered queries (L5) + thumbs-down + discovery findings (L6). **Detect**: an AI pass flags contradictions (L3 conflicting edges) and gaps (L6 link-prediction); the failure log points (via L4 spans) at defective sources. **Prioritize** by traffic × impact. **Fix**: retire a stale doc, add a doc for the top gap, resolve a conflict (human call). **Verify**: re-run the L1 gold questions and show the scorecard recover. Then run the "AI rewrites in bulk, unreviewed" anti-pattern and watch a fabricated number slip in — and how provenance + review would have caught it.
-- **What the student feels** — improvement is a measurable loop, not a cleanup sprint; signals beat opinions; AI is a force multiplier *only* with provenance and human gates.
-- **Skills exercised** — designing the loop, prioritizing by signal, safe human+AI collaboration, closing the loop with the scorecard.
+- **Mechanic** — assemble the agent's context three ways: (1) dump everything retrievable, (2) top-k focused retrieval, (3) agentic just-in-time (the agent calls a retrieval/graph tool as needed). Compare answer quality, token cost, and latency. Inflate the dump until **context rot** appears — quality drops as size grows. Then assemble *with* provenance and watch the agent produce cited answers; strip it and watch grounding vanish.
+- **What the student feels** — more context is not better; relevance and placement beat volume; just-in-time adapts where pre-stuffing can't; provenance must survive assembly.
+- **Skills exercised** — minimal-sufficient context, upfront vs. just-in-time, diagnosing context rot, carrying provenance to the agent.
 
 ## To discuss
 
-- What's your richest untapped signal — unanswered queries, AI failures, escalations — and is anyone mining it?
-- Where's your line for auto-apply vs. human review, and is it set by *impact* or by convenience?
-- The loop is closed: which earlier stage (representation, graph, extraction) does your evidence say to fix *first*?
+- For your agents, what fraction of context should be pre-loaded vs. fetched just-in-time — and who owns that budget?
+- Long-term memory that persists is now part of your KB. Is it held to the L1 scorecard, or is it a back door for unmanaged knowledge? (Sets up L8.)

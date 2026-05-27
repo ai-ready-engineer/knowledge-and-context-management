@@ -7,16 +7,17 @@ Part of the AI-Ready Engineer masterclass series (sibling to Experiment Design a
 The course follows the **knowledge lifecycle** as a loop, with **quality of knowledge** as the through-line:
 
 ```
-represent → connect (graph) → extract → query → discover → improve → (back to represent)
+represent → connect (graph) → extract → query → discover → provide context → backpropagate → improve → (back to represent)
 ```
 
 - L1 establishes the quality scorecard (all dimensions).
 - L3 (graph) comes before L4 (extraction): the graph is the structure; extraction populates it. The L3 schema is the contract extraction must satisfy.
 - "Getting knowledge out" splits into L5 **querying** (retrieve what you know to ask for: search, RAG, GraphRAG, traversal/paths) and L6 **discovery** (surface what you didn't: centrality, communities, link prediction). Graph methods serve both — there is no separate "Graph Methods" lesson.
+- The agent loop is L7 + L8: L7 **providing context to agents** is the forward pass (knowledge → agent); L8 **knowledge backpropagation from agentic feedback** is the backward pass (agent outcomes → candidate knowledge updates). L8 *proposes*; L9 *disposes* (the write-back gate lives in L9).
 - Each later lesson improves one or two dimensions of that scorecard.
-- L7 closes the loop, feeding quality signals — including the gaps from L5 and L6 — back to representation, the graph, and extraction.
+- L9 closes the loop, consolidating signals from L5, L6, L7, and L8 and feeding fixes back to representation, the graph, and extraction.
 
-Lesson list (7): 1 Quality · 2 Representation · 3 Graphs · 4 Extraction · 5 Querying · 6 Discovery · 7 Improvement.
+Lesson list (9): 1 Quality · 2 Representation · 3 Graphs · 4 Extraction · 5 Querying · 6 Discovery · 7 Providing Context to Agents · 8 Knowledge Backpropagation from Agentic Feedback · 9 Improvement.
 
 ## Per-lesson convention
 

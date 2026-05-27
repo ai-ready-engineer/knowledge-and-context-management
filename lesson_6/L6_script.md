@@ -13,14 +13,14 @@ Hook: "Querying needs a question. Discovery generates them."
 1. Discovery vs. querying — discovery reads the *structure*, not your search box. Name the split (callback to L5).
 2. Centrality — important / load-bearing / single point of failure. Degree, betweenness, PageRank, one KM use each. Tie the load-bearing node to L1 quality.
 3. Communities — topics nobody tagged; silos that should be linked. Show the partition — then turn the resolution knob and watch it change (it's a view, not a fact).
-4. Link prediction — the gap radar; the one that feeds L7. Ranked list of edges that *should* exist.
+4. Link prediction — the gap radar; the one that feeds L9. Ranked list of edges that *should* exist.
 5. Embeddings/GNNs — conceptual only. When patterns are too subtle for hand-picked metrics. Warning: don't bring a GNN to an `ORDER BY degree` fight.
 
 ## Demo / playground walkthrough
 
 - Centrality on the support graph → the load-bearing policy; tie to L1 (an error here poisons many answers).
 - Community detection → topics emerge; wobble the resolution; same data, different clusters. Sober the room.
-- Link prediction → ranked list of missing documentation edges = a prioritized backlog for L7.
+- Link prediction → ranked list of missing documentation edges = a prioritized backlog for L9.
 - Failure demo: inject an un-resolved duplicate hub (skipped L4) → centrality crowns a fake concept. Algorithms measure your data's defects too.
 
 ## Close
@@ -31,4 +31,4 @@ Single takeaway: **Discovery reads the graph's structure to surface what you did
 
 - Keep GNNs strictly conceptual; if someone wants the math, point to a deep-dive, not the main thread.
 - Every method output must end in a *KM action* — rank, merge, document, link. No algorithm for its own sake.
-- The link-prediction backlog is the explicit handoff to L7's improvement loop.
+- The link-prediction backlog is the explicit handoff to L9's improvement loop.

@@ -14,7 +14,7 @@ Hook: "This is the step where the graph gets its facts. It's also the step where
 2. Classic IE vs. LLM extraction — the trade table. Deterministic/cheap/brittle vs. flexible/costly/hallucination-prone.
 3. Schema-guided extraction — hand the model the L3 schema (structured outputs / function calling). What comes out is guaranteed loadable.
 4. Entity resolution — the unglamorous step that makes graph counts true. "Acme" five ways → one node.
-5. Provenance — keep the span on every node/edge. Powers L1's citation check and L7's retire-when-source-dies.
+5. Provenance — keep the span on every node/edge. Powers L1's citation check and L9's retire-when-source-dies.
 
 ## Demo / playground walkthrough
 

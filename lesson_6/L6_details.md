@@ -11,15 +11,15 @@ Querying (L5) gets out what you know to ask for. **Discovery** surfaces what you
   - *PageRank / eigenvector* — important because important things point to it (authority).
   - KM uses: find the canonical doc on a topic, rank knowledge, spot the load-bearing fact whose error would poison many answers (tie to L1).
 - **Community detection — what clusters together.** Louvain, Leiden, label propagation partition the graph into densely-connected groups. KM uses: discover topics no one tagged, find duplicate clusters, reveal **silos** (two communities that *should* be linked but aren't), organize navigation.
-- **Link prediction — what's missing.** Given the graph's structure, predict edges that *should* exist (common-neighbor, Adamic–Adar, or embedding-based scores). KM uses: surface knowledge gaps ("these tickets reference a policy no document covers"), suggest related-article links, propose entity merges. This is the **gap radar** that feeds L7's improvement loop.
+- **Link prediction — what's missing.** Given the graph's structure, predict edges that *should* exist (common-neighbor, Adamic–Adar, or embedding-based scores). KM uses: surface knowledge gaps ("these tickets reference a policy no document covers"), suggest related-article links, propose entity merges. This is the **gap radar** that feeds L9's improvement loop.
 - **Node embeddings & GNNs (conceptual).** node2vec / GNNs learn a vector per node from its neighborhood — bringing embedding-style similarity *to the graph*, and powering link prediction and node classification at scale. Reach for them when the graph is large and patterns are too subtle for hand-picked metrics; skip them when a degree count or a Louvain pass already answers the question. (We stay conceptual — this is not a GNN course.)
 
 ## Patterns
 
 - **Pick the method from the discovery question.** "What's authoritative?" → centrality. "What topics/silos exist?" → communities. "What's missing?" → link prediction. "Who knows this?" → paths + centrality.
-- **Use link prediction as a gap radar.** Run it periodically; high-confidence missing edges are a prioritized to-do list for L7.
+- **Use link prediction as a gap radar.** Run it periodically; high-confidence missing edges are a prioritized to-do list for L9.
 - **Graph similarity vs. embedding similarity.** Embeddings (L2) capture *semantic* likeness from text; graph methods capture *structural/relational* likeness. They disagree usefully — combine them.
-- **Discovery proposes; it does not commit.** Every output is a suggestion for a human (or L7's loop) to review, never an automatic write.
+- **Discovery proposes; it does not commit.** Every output is a suggestion for a human (or L9's loop) to review, never an automatic write.
 
 ## Anti-patterns — and how they materialize
 
@@ -30,7 +30,7 @@ Querying (L5) gets out what you know to ask for. **Discovery** surfaces what you
 
 ## The quality dimension this lesson moves
 
-**Completeness & relevance.** Link prediction and community gaps reveal what's *missing or disconnected* (completeness); centrality and similarity surface what *matters most* (relevance). Discovery turns the static graph into a tool that finds its own defects — feeding directly into L7.
+**Completeness & relevance.** Link prediction and community gaps reveal what's *missing or disconnected* (completeness); centrality and similarity surface what *matters most* (relevance). Discovery turns the static graph into a tool that finds its own defects — feeding directly into L9.
 
 ## Hands-on for lesson 6
 
@@ -43,4 +43,4 @@ Querying (L5) gets out what you know to ask for. **Discovery** surfaces what you
 ## To discuss
 
 - Which of your KM pains is really a discovery question in disguise — gap detection, dedup, topic finding, expertise location?
-- Link prediction proposes 200 missing edges — who reviews them, and at what confidence do you auto-apply vs. queue for a human? (Straight into L7.)
+- Link prediction proposes 200 missing edges — who reviews them, and at what confidence do you auto-apply vs. queue for a human? (Straight into L9.)

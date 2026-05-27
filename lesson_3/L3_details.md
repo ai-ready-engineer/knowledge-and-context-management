@@ -10,7 +10,7 @@ A knowledge graph makes *connection* a first-class part of the representation. W
   - **RDF triples** — everything is a `(subject, predicate, object)` triple; queried with **SPARQL**; strong on standards, interoperability, formal semantics (W3C, linked data).
   - **Labeled property graph (LPG)** — nodes and edges with arbitrary properties; queried with **Cypher** (Neo4j) and similar; pragmatic, popular in engineering. *Same idea, different ergonomics.*
 - **KG vs. vector store.** A vector store (L2 embeddings) answers "find me text *like* this." A graph answers "*how* is X connected to Y," "what's two hops from here," "everything that depends on this policy." Multi-hop and relational questions — the bulk of real KM questions — are exactly what embeddings cannot do. Most systems use both: vectors for fuzzy entry points, graph for structure.
-- **Gaps and contradictions become visible.** In a pile of documents, a missing fact is invisible and a contradiction is buried. In a graph, a gap is a *node with no `documented-by` edge* and a contradiction is *two conflicting edges*. That visibility is what makes L6's discovery and L7's improvement possible.
+- **Gaps and contradictions become visible.** In a pile of documents, a missing fact is invisible and a contradiction is buried. In a graph, a gap is a *node with no `documented-by` edge* and a contradiction is *two conflicting edges*. That visibility is what makes L6's discovery and L9's improvement possible.
 
 ## Patterns
 
@@ -26,7 +26,7 @@ A knowledge graph makes *connection* a first-class part of the representation. W
 
 ## The quality dimension this lesson moves
 
-**Completeness & consistency.** A graph turns coverage gaps into *missing edges* and contradictions into *conflicting edges* — defects that are invisible in a document pile and obvious in a graph. This visibility is the foundation discovery (L6) and improvement (L7) build on.
+**Completeness & consistency.** A graph turns coverage gaps into *missing edges* and contradictions into *conflicting edges* — defects that are invisible in a document pile and obvious in a graph. This visibility is the foundation discovery (L6) and improvement (L9) build on.
 
 ## Hands-on for lesson 3
 

@@ -1,23 +1,23 @@
-# Lesson 7 — Knowledge Improvement
+# Lesson 7 — Providing Context to Agents
 
 **Number:** L7
-**Tagline:** Knowledge is a living asset — it goes stale, develops gaps, and contradicts itself. The loop that detects those defects and closes them, with humans and AI.
-**Lifecycle stage:** Improve (and close the loop back to Represent)
-**Quality dimension in focus:** Freshness & the whole L1 scorecard, over time
+**Tagline:** An agent doesn't browse your knowledge base — you assemble its *context*. Getting the right knowledge into a finite context window, at the right moment, is its own discipline.
+**Lifecycle stage:** Serve — deliver knowledge to agents as context (the forward pass)
+**Quality dimension in focus:** Relevance & findability — cashed in at serve time, under a token budget
 
 ## What we cover
-- Why knowledge decays: staleness, gaps, contradictions, and drift as the world moves
-- The improvement loop: detect → prioritize → fix → verify, scored against the L1 scorecard
-- Feedback signals: usage, failed and unanswered queries (L5), discovery findings (L6), user feedback, AI failures
-- Using AI to improve KM: detecting contradictions, proposing updates, filling gaps, summarizing
-- Governance: human-in-the-loop review, provenance (L4), and not letting AI quietly rewrite the truth
+- The shift from "user looks things up" to "system assembles an agent's context" — and why context is the unit that matters
+- What's in an agent's context: instructions, retrieved knowledge (L5), tool results, memory, conversation history — the KB is one input among several
+- Context engineering: choosing what goes in the finite window — upfront vs. just-in-time (agentic) retrieval
+- Context window limits, cost/latency, and "context rot" — why more context is often worse
+- Short-term vs. long-term memory, and carrying provenance (L4) into context so the agent can cite
 
 ## Skills you unlock
-- Design a knowledge-improvement loop with explicit detect / prioritize / fix / verify stages
-- Use querying and discovery signals to decide what to fix first
-- Combine human review with AI assistance safely
-- Close the loop: feed quality metrics back to representation, the graph, and extraction
-- Keep the L1 scorecard from quietly degrading over time
+- Assemble the minimal sufficient context for a task, relevance over volume
+- Choose between pre-loading context and letting the agent fetch it just-in-time
+- Diagnose context rot and lost-in-the-middle failures
+- Carry provenance into context so answers stay grounded and citable
+- Budget the context window against cost, latency, and quality
 
 ## Tools and examples
-Improvement-loop dashboard (signals → prioritized fixes → verify) · AI contradiction/gap detector over the graph · before/after scorecard showing a closed loop.
+Context assembler (same query, several context strategies side by side) · context-rot demo (answer quality vs. context size) · grounded-vs-ungrounded context with citations.

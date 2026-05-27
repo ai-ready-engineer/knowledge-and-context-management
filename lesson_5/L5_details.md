@@ -20,7 +20,7 @@ We now have a populated graph (L3 + L4). There are two ways to *use* it: **query
 
 - **Choose the retrieval mode from the question shape.** Exact/structured → graph query. "Find similar" → semantic. Multi-hop/relational → traversal/GraphRAG. Often: semantic to find the entry point, then traverse.
 - **Always cite.** Return the source span (L4) or the graph path. An uncited answer can't be trusted or improved.
-- **Make "I don't know" first-class.** If retrieval finds nothing relevant, say so — don't let the LLM paper over a gap (which is exactly the signal L7 wants).
+- **Make "I don't know" first-class.** If retrieval finds nothing relevant, say so — don't let the LLM paper over a gap (which is exactly the signal L9 wants).
 
 ## Anti-patterns — and how they materialize
 
@@ -44,4 +44,4 @@ We now have a populated graph (L3 + L4). There are two ways to *use* it: **query
 ## To discuss
 
 - For your traffic, what's the mix of exact / similar / multi-hop questions? That sets your retrieval architecture.
-- Every "not found" is a gap signal — where does it go? (Straight into L6 discovery and L7 improvement.)
+- Every "not found" is a gap signal — where does it go? (Straight into L6 discovery and L9 improvement.)

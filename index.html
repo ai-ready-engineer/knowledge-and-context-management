@@ -43,12 +43,12 @@
           <p>Every lesson is built the same way:</p>
           <ul>
             <li>It has <strong>tiles describing what we cover</strong>. You can see if you already know the content, need a refresher, or it is new for you.</li>
-            <li>It takes <strong>one stage of the knowledge lifecycle</strong> — represent, connect, extract, query, discover, improve — so you meet it on its own before it combines with the others.</li>
+            <li>It takes <strong>one stage of the knowledge lifecycle</strong> — represent, connect, extract, query, discover, provide context, backpropagate, improve — so you meet it on its own before it combines with the others.</li>
             <li>It keeps <strong>quality of knowledge as the through-line</strong>: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.</li>
             <li>It contrasts <strong>good practice against the trap</strong> that fools people — shown through a worked example.</li>
             <li>It hands you a <strong>hands-on example</strong> you can poke at, plus an optional code path for those who want to go deeper.</li>
           </ul>
-          <p>The lifecycle is a loop, not a line: Lesson 7 feeds the quality signals from Lesson 1 — and the gaps surfaced by querying (L5) and discovery (L6) — back into representation, the graph, and extraction.</p>
+          <p>The lifecycle is a loop, not a line: Lesson 9 consolidates the signals from querying (L5), discovery (L6), context-serving (L7), and agentic backpropagation (L8), and feeds fixes back into representation, the graph, and extraction.</p>
         </div>
       </details>
 
@@ -64,6 +64,8 @@
             <li>Extract structured knowledge from messy sources, with LLMs, and know how much to trust it.</li>
             <li>Query knowledge well — keyword, semantic, structured, RAG, and GraphRAG — and tell grounded answers from guesses.</li>
             <li>Discover what you didn't know to ask: importance, communities, and missing links via graph methods.</li>
+            <li>Provide the right context to agents — grounded, fresh, and within the window's budget.</li>
+            <li>Backpropagate agentic feedback into the knowledge base without poisoning it.</li>
             <li>Run an improvement loop that detects gaps, staleness, and contradictions and closes them.</li>
           </ul>
         </div>
@@ -81,7 +83,7 @@
       </details>
 
       <h2 style="margin-top:2.5rem;">The lessons</h2>
-      <p>Seven <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract → query → discover → improve</em>, with quality of knowledge as the through-line. Each isolates one stage and ties it back to knowledge quality. Every session comes with <em>optional</em> hands-on examples for those who want to go further.</p>
+      <p>Nine <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract → query → discover → provide context → backpropagate → improve</em>, with quality of knowledge as the through-line. The second half makes the <strong>agent loop</strong> explicit — knowledge flows out to agents as context (L7), and agent feedback flows back to update the knowledge (L8). Each session isolates one stage and ties it back to knowledge quality, and comes with <em>optional</em> hands-on examples.</p>
 
       <div class="modules-grid">
         <div class="module-card">
@@ -260,6 +262,64 @@
 
         <div class="module-card">
           <div class="number">L7</div>
+          <div class="title">Providing Context to Agents</div>
+          <p class="description">An agent doesn't browse your knowledge — you assemble its context. Getting the right knowledge into a finite window, at the right moment, is its own discipline.</p>
+          <details class="objectives">
+            <summary>Content</summary>
+            <ul>
+              <li>The shift from "user looks things up" to "system assembles an agent's context" — and why context is the unit that matters</li>
+              <li>What's in an agent's context: instructions, retrieved knowledge (L5), tool results, memory, conversation history</li>
+              <li>Context engineering: upfront vs. just-in-time (agentic) retrieval</li>
+              <li>Context window limits, cost/latency, and "context rot" — why more context is often worse</li>
+              <li>Short- vs. long-term memory, and carrying provenance (L4) into context so the agent can cite</li>
+            </ul>
+          </details>
+          <details class="objectives">
+            <summary>Skills you unlock</summary>
+            <ul>
+              <li>Assemble the minimal sufficient context for a task — relevance over volume</li>
+              <li>Choose between pre-loading context and letting the agent fetch it just-in-time</li>
+              <li>Diagnose context rot and lost-in-the-middle failures</li>
+              <li>Carry provenance into context so answers stay grounded and citable</li>
+            </ul>
+          </details>
+          <details class="objectives">
+            <summary>Quality dimension in focus</summary>
+            <p><strong>Relevance &amp; findability — at serve time, under a budget.</strong> A correct, fresh, findable fact that never reaches the agent's window might as well not exist. This is the "context" half of the course.</p>
+          </details>
+        </div>
+
+        <div class="module-card">
+          <div class="number">L8</div>
+          <div class="title">Knowledge Backpropagation from Agentic Feedback</div>
+          <p class="description">Agents using your knowledge are the richest signal of what it's missing or getting wrong. Flow that feedback back into the knowledge — without poisoning the well.</p>
+          <details class="objectives">
+            <summary>Content</summary>
+            <ul>
+              <li>The backpropagation metaphor: agents are the forward pass (L7); their outcomes are an error signal that flows back to update the knowledge</li>
+              <li>The signals agents emit: retrieval hits/misses, tool failures, dead-ends, user corrections, repeated unmet needs, facts discovered mid-task</li>
+              <li>Distilling reusable knowledge from agent trajectories — a durable KB entry, not a raw log</li>
+              <li>Credit assignment: tracing a success or failure to the specific knowledge responsible (via L4 provenance)</li>
+              <li>The danger: feedback loops and model collapse — agents writing their own hallucinations back</li>
+            </ul>
+          </details>
+          <details class="objectives">
+            <summary>Skills you unlock</summary>
+            <ul>
+              <li>Instrument agents to emit structured feedback as first-class knowledge signals</li>
+              <li>Distill trajectories into clean, deduplicated candidate knowledge</li>
+              <li>Trace credit and blame to specific facts using provenance</li>
+              <li>Recognize and prevent contamination / self-reinforcing feedback loops</li>
+            </ul>
+          </details>
+          <details class="objectives">
+            <summary>Quality dimension in focus</summary>
+            <p><strong>Completeness, freshness &amp; correctness — revealed through use.</strong> Agents in production are the earliest, richest signal of what the knowledge is missing or getting wrong. Backprop turns that into candidate updates; L9 gates and applies them.</p>
+          </details>
+        </div>
+
+        <div class="module-card">
+          <div class="number">L9</div>
           <div class="title">Knowledge Improvement</div>
           <p class="description">Knowledge is a living asset that decays. The loop that detects gaps, staleness, and contradictions — and closes them with humans and AI.</p>
           <details class="objectives">
@@ -267,17 +327,17 @@
             <ul>
               <li>Knowledge decays: it goes stale, develops gaps, and accumulates contradictions</li>
               <li>The improvement loop: detect → prioritize → fix → verify, scored against the L1 scorecard</li>
-              <li>Feedback signals: usage, failed queries (L5), discovery findings (L6), user feedback, AI failures</li>
+              <li>Feedback signals: failed queries (L5), discovery findings (L6), context failures (L7), agentic backpropagation (L8), usage, user feedback</li>
               <li>Using AI to improve KM: detecting contradictions, proposing updates, filling gaps, summarizing</li>
-              <li>Governance: human-in-the-loop review, provenance (L4), and not letting the AI quietly rewrite the truth</li>
+              <li>Governance: the L8 write-back gate, human-in-the-loop review, provenance (L4), and not letting AI quietly rewrite the truth</li>
             </ul>
           </details>
           <details class="objectives">
             <summary>Skills you unlock</summary>
             <ul>
               <li>Design a knowledge-improvement loop with explicit detect/fix/verify stages</li>
-              <li>Use querying and discovery signals to prioritize what to fix first</li>
-              <li>Combine human review with AI assistance safely</li>
+              <li>Turn querying, discovery, context, and agentic-feedback signals into a prioritized backlog</li>
+              <li>Combine human review with AI assistance safely — and gate agent-generated write-back</li>
               <li>Close the loop: feed quality metrics back to representation, the graph, and extraction</li>
             </ul>
           </details>

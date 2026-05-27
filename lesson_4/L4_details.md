@@ -20,7 +20,7 @@ In L3 we designed the graph's schema. Extraction is how we *fill* it from messy 
 ## Patterns
 
 - **Extract to the schema, not to prose.** Structured output you can validate and load beats a paragraph you must re-parse.
-- **Keep the span.** Store the source document and exact text span on each node/edge — this powers L1's citation-correctness probe and L7's retire-when-source-dies.
+- **Keep the span.** Store the source document and exact text span on each node/edge — this powers L1's citation-correctness probe and L9's retire-when-source-dies.
 - **Resolve before you load.** Run entity resolution and normalization *before* writing to the graph, not after duplicates spread.
 - **Hybrid extraction.** Cheap classic IE for the high-volume easy cases; LLM for the messy long tail.
 
@@ -29,7 +29,7 @@ In L3 we designed the graph's schema. Extraction is how we *fill* it from messy 
 - **Trusting the LLM's facts without grounding.** The model emits "refund window: 45 days" — plausible, parseable, schema-valid, and *not in the document*. It filled the shape from prior knowledge. Without a stored span nobody catches it.
 - **No entity resolution.** "Acme" loads as 5 nodes; an L6 count says you have 5 enterprise customers when you have one. Each mention was "correct"; the graph is wrong.
 - **Extraction with no eval.** A pipeline ships because the output *looks* structured; nobody measured precision/recall against a labeled sample, so a 70%-recall extractor silently drops a third of the facts and leaves graph gaps.
-- **Lossy normalization.** Forcing every date to a year drops the month; "expires Q3" becomes "expires 2026" and a freshness check (L7) can never fire.
+- **Lossy normalization.** Forcing every date to a year drops the month; "expires Q3" becomes "expires 2026" and a freshness check (L9) can never fire.
 
 ## The quality dimension this lesson moves
 
@@ -46,4 +46,4 @@ In L3 we designed the graph's schema. Extraction is how we *fill* it from messy 
 ## To discuss
 
 - Where do you draw the line: classic IE for the bulk, LLM for the tail — or LLM for everything and pay the cost?
-- Who reviews extracted facts before they become graph "truth" — and can a human keep up at volume? (Sets up L7.)
+- Who reviews extracted facts before they become graph "truth" — and can a human keep up at volume? (Sets up L9.)
