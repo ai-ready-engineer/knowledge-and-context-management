@@ -1,17 +1,34 @@
-# Enterprise Knowledge and Context Management - for AI and Humans
+# Enterprise Knowledge and Context Management 
+*For AI and Humans*
 
-> A short course for everyone who builds with, ships, or depends on AI systems that sit on top of an organization's knowledge — engineers, PMs, knowledge owners, data teams, leaders. No coding required. We build the knowledge layer that determines whether the AI on top of it is any good.
 
 
 ## Why this course
 
-AI changed the stakes of knowledge management. A RAG system, an assistant, or an agent is only as good as the knowledge it can reach — and it now reaches that knowledge automatically, at scale, with no human to catch the stale doc, the missing fact, or the contradiction. The knowledge base used to be a place people *looked things up*; now it is a component that *answers on your behalf*. Its quality is your product's quality.
+AI changes knowledge management:
 
-Three claims:
+1. Agents are a primary — if not *the* primary — consumer of knowledge. This gives us a unique opportunity: getting high-resolution feedback on knowledge, at scale, directly from the agents themselves.
 
-1. Quality of knowledge sets the ceiling on quality of AI answers — you cannot prompt your way past a bad knowledge base.
-2. Knowledge is an asset with a lifecycle: it must be represented, extracted, connected, measured, and continuously improved — not just stored.
-3. The same AI that consumes knowledge can help manage it — extracting, linking, and repairing it — if you keep humans and provenance in the loop.
+2. Context engineering — what to show an agent, in what form, at what time — is central to the success of our agents.
+
+3. The way agents consume knowledge is different from how humans do — and even humans increasingly consume knowledge *through* agents. This changes how we represent and structure knowledge.
+
+4. Agents are also increasingly producers of knowledge. Humans have to pick what they want to control and what can instead evolve at the speed of agents.
+
+These have implications for enterprises:
+- Knowledge gets a loss function. It becomes "testable" and can evolve almost on its own.
+- Balancing speed, quality, and governance is the new mastery.
+- Knowledge has many authors and many forms — we can now process, represent, and make use of all of them to get the right content to consumers.
+- Knowledge graduates from documentation to infrastructure.
+
+
+## Who this course is for
+
+- **Engineers and engineering managers building with AI:** RAG, agents, and assistants are only as good as the knowledge they sit on. Learn to build that knowledge layer deliberately.
+- **Product managers and knowledge owners:** Turn a pile of documents into a measurable, improvable knowledge asset — and know when it is good enough to ship.
+- **Data and platform teams:** Choose representations, model a knowledge graph, design extraction pipelines, and serve the right context to agents.
+- **Executives** *(compact course)*: Understand why knowledge quality is now a product-quality lever, and what to ask the teams who own it.
+
 
 ## Objectives
 
@@ -19,20 +36,61 @@ Three claims:
 
 **For the company** — knowledge quality as shared infrastructure. When teams share a vocabulary for representation, extraction, graphs, and quality, a knowledge defect gets caught and fixed before it degrades every downstream answer.
 
+
+## What you will learn
+
+By the end of the course, "knowledge" will look like a managed, measurable asset — not a folder of documents you hope someone reads. You will be able to:
+
+- Write a quality scorecard for your knowledge base and get a baseline reading.
+- Pick the right representation — text, schema, taxonomy, embedding, graph — for each use case, and defend the choice.
+- Sketch a knowledge graph schema for your domain, and call when it earns its keep over a plain vector store.
+- Extract structured knowledge from messy sources, abstract it into higher-level structure, and infer the edges nobody wrote down.
+- Choose the right query mode — keyword, semantic, structured, RAG, GraphRAG — and tell a grounded answer from a guess.
+- Assemble agent context that is grounded, fresh, and within the window's budget — and know what to cut when it isn't.
+- Turn agent failures into knowledge fixes, and run the improvement loop that keeps the base fresh, complete, and correct.
+
+
+## What the course is NOT about
+
+- We are not training foundation models — we manage the knowledge that AI systems consume and produce.
+- We are not doing organizational change management or "KM as HR" — the focus is the technical knowledge layer behind AI products.
+- We are not building a full production RAG stack — we build the knowledge it depends on.
+
+
+## Prerequisites
+
+The course has no prerequisites except for:
+
+- Curiosity
+- Something you actually want your organization to *know*
+- Patience for the unglamorous truth that good AI starts with good knowledge
+
+The course is "hands-on" but no heavy coding is required: you will get to play with small examples to *feel* what a representation, a graph, or an extraction buys you — and where each one breaks.
+
+
 ## Format
 
-7 lessons. Each lesson: a core part **for everybody** (no code, no math prereq), a **hands-on example** (interactive, no install), and **practical examples**. Optional deeper notebooks are take-home.
+Each lesson: a core part **for everybody** (no code, no math prereq), a **hands-on example** (interactive, no install), and **practical examples**. Optional deeper notebooks are take-home.
 
-The course follows the knowledge lifecycle as a loop: **represent → connect → extract & discover → query → provide context → improve → (back to represent)**. Lesson 1 establishes the quality scorecard; each later lesson improves one or two of its dimensions; Lesson 7 consolidates the signals — from extraction & discovery (L4), querying (L5), context-serving (L6), and the agents themselves — and feeds fixes back to the start.
 
-The **agent loop** is made explicit in the second half: knowledge flows *out* to agents as context (L6, the forward pass), and agent outcomes flow *back* as candidate knowledge updates (L7, the backward pass — "agentic backpropagation"), gated and consolidated by the improvement loop.
+## How the course works
+
+The course follows **one stage of the knowledge lifecycle** per lesson — represent, connect, extract, abstract, infer, query, provide context, improve — keeping **quality of knowledge** as the through-line: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.
+
+The lifecycle is a loop, not a line: the final lesson consolidates the signals from extraction (L4), inference (L5), querying (L6), context-serving (L7), and the agents themselves, and feeds fixes back into representation, the graph, and extraction.
+
+The **agent loop** runs through the second half: knowledge flows out to agents as context (L7, the forward pass), and agent feedback flows back to update the knowledge (L8, "agentic backpropagation").
+
 
 ## Lessons
 
-1. [Quality of Knowledge](lesson_1/L1_outline.md)
-2. [Knowledge Representation](lesson_2/L2_outline.md)
-3. [Knowledge Graphs](lesson_3/L3_outline.md)
-4. [Knowledge Extraction & Discovery](lesson_4/L4_outline.md)
-5. [Knowledge Querying](lesson_5/L5_outline.md)
-6. [Providing Context to Agents](lesson_6/L6_outline.md)
-7. [Knowledge Improvement & Agentic Feedback](lesson_7/L7_outline.md)
+Eight 1-hour sessions following the knowledge lifecycle: *represent → connect → extract → abstract → infer → query → provide context → improve*.
+
+1. **[Defining and Measuring Knowledge Quality](lesson_1/L1_outline.md)** — What "knowledge" is, what makes it good, and how to measure it — the scorecard the rest of the course optimizes.
+2. **[Knowledge Representation](lesson_2/L2_outline.md)** — Text, schemas, taxonomies, triples, embeddings — and how the choice decides what you can later do with the knowledge.
+3. **[Knowledge Graphs](lesson_3/L3_outline.md)** — Connecting facts into a graph of entities and relations — the structure we populate, query, and mine.
+4. **[Knowledge Extraction & Abstraction](lesson_4/L4_outline.md)** — Fill the graph from messy sources, then form higher-level structure: clusters, summaries, taxonomies, hierarchies.
+5. **[Knowledge Inference](lesson_5/L5_outline.md)** — Derive what the graph doesn't explicitly state — centrality and communities, link prediction, rule-based and embedding-based reasoning.
+6. **[Knowledge Querying](lesson_6/L6_outline.md)** — Getting out what you know — search, semantic retrieval, structured queries, RAG, and GraphRAG.
+7. **[Providing Context to Agents](lesson_7/L7_outline.md)** — Assembling the right knowledge into an agent's finite context window, at the right moment — the "context" half of the course.
+8. **[Knowledge Improvement & Agentic Feedback](lesson_8/L8_outline.md)** — Backpropagate agent feedback into the knowledge, and run the loop that keeps it fresh, complete, and correct — without poisoning the well.

@@ -41,9 +41,9 @@
       <details class="topic" open>
         <summary><h2>How the course works</h2></summary>
         <div class="details-content">
-          <p>The course follows <strong>one stage of the knowledge lifecycle</strong> per lesson — represent, connect, extract &amp; discover, query, provide context, improve — keeping <strong>quality of knowledge</strong> as the through-line: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.</p>
-          <p>The lifecycle is a loop, not a line: the final lesson consolidates the signals from extraction &amp; discovery (L4), querying (L5), context-serving (L6), and the agents themselves, and feeds fixes back into representation, the graph, and extraction.</p>
-          <p>The <strong>agent loop</strong> runs through the second half: knowledge flows out to agents as context (L6, the forward pass), and agent feedback flows back to update the knowledge (L7, "agentic backpropagation").</p>
+          <p>The course follows <strong>one stage of the knowledge lifecycle</strong> per lesson — represent, connect, extract, abstract, infer, query, provide context, improve — keeping <strong>quality of knowledge</strong> as the through-line: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.</p>
+          <p>The lifecycle is a loop, not a line: the final lesson consolidates the signals from extraction (L4), inference (L5), querying (L6), context-serving (L7), and the agents themselves, and feeds fixes back into representation, the graph, and extraction.</p>
+          <p>The <strong>agent loop</strong> runs through the second half: knowledge flows out to agents as context (L7, the forward pass), and agent feedback flows back to update the knowledge (L8, "agentic backpropagation").</p>
         </div>
       </details>
 
@@ -55,7 +55,7 @@
             <li>Define what quality of knowledge means for your domain, and measure it.</li>
             <li>Choose how to represent knowledge — text, schemas, taxonomies, embeddings, graphs — for the job at hand.</li>
             <li>Model a knowledge graph and decide when it beats a plain vector store.</li>
-            <li>Extract structured knowledge from messy sources, and mine the graph to discover what's important and missing.</li>
+            <li>Extract structured knowledge from messy sources, abstract it into higher-level structure, and infer what the graph doesn't explicitly state.</li>
             <li>Query knowledge well — keyword, semantic, structured, RAG, and GraphRAG — and tell grounded answers from guesses.</li>
             <li>Provide the right context to agents — grounded, fresh, and within the window's budget.</li>
             <li>Backpropagate agentic feedback and run an improvement loop that keeps the knowledge fresh, complete, and correct.</li>
@@ -75,12 +75,12 @@
       </details>
 
       <h2 style="margin-top:2.5rem;">The lessons</h2>
-      <p>Seven <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract &amp; discover → query → provide context → improve</em>. Titles below; detailed content and hands-on labs are in progress.</p>
+      <p>Eight <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract → abstract → infer → query → provide context → improve</em>. Titles below; detailed content and hands-on labs are in progress.</p>
 
       <div class="modules-grid">
         <div class="module-card">
           <div class="number">L1</div>
-          <div class="title">Quality of Knowledge</div>
+          <div class="title">Defining and Measuring Knowledge Quality</div>
           <p class="description">What "knowledge" is, what makes it good, and how to measure it — the scorecard the rest of the course optimizes.</p>
         </div>
 
@@ -98,24 +98,30 @@
 
         <div class="module-card">
           <div class="number">L4</div>
-          <div class="title">Knowledge Extraction &amp; Discovery</div>
-          <p class="description">Fill the graph from messy sources, then mine its structure for what's important, clustered, and missing.</p>
+          <div class="title">Knowledge Extraction &amp; Abstraction</div>
+          <p class="description">Fill the graph from messy sources, then form higher-level structure: clusters, summaries, taxonomies, hierarchies.</p>
         </div>
 
         <div class="module-card">
           <div class="number">L5</div>
+          <div class="title">Knowledge Inference</div>
+          <p class="description">Derive what the graph doesn't explicitly state — centrality and communities, link prediction, rule-based and embedding-based reasoning.</p>
+        </div>
+
+        <div class="module-card">
+          <div class="number">L6</div>
           <div class="title">Knowledge Querying</div>
           <p class="description">Getting out what you know — search, semantic retrieval, structured queries, RAG, and GraphRAG.</p>
         </div>
 
         <div class="module-card">
-          <div class="number">L6</div>
+          <div class="number">L7</div>
           <div class="title">Providing Context to Agents</div>
           <p class="description">Assembling the right knowledge into an agent's finite context window, at the right moment — the "context" half of the course.</p>
         </div>
 
         <div class="module-card">
-          <div class="number">L7</div>
+          <div class="number">L8</div>
           <div class="title">Knowledge Improvement &amp; Agentic Feedback</div>
           <p class="description">Backpropagate agent feedback into the knowledge, and run the loop that keeps it fresh, complete, and correct — without poisoning the well.</p>
         </div>
