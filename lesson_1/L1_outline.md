@@ -1,9 +1,8 @@
-# Lesson 1 — Quality of Knowledge
+# Lesson 1 — Quality of Knowledge in the Age of AI
 
 **Number:** L1
-**Tagline:** Your AI's answers can't be better than the knowledge behind them. So what makes knowledge *good*, and how do we measure it?
-**Lifecycle stage:** Measure (the scorecard the whole course optimizes)
-**Quality dimension in focus:** All of them — this lesson lays out the full scorecard.
+**Tagline:** Which "types" of Enterprise Knowlege do we have? Who consumes and produces it? What makes knowledge *good*, and how do we measure it?
+
 
 ## What we cover
 - Data → information → knowledge: a useful distinction, and where the tidy DIKW pyramid misleads

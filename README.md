@@ -1,6 +1,6 @@
-# Knowledge and Context Management
+# Enterprise Knowledge and Context Management
 
-Course materials for the AI-Ready Engineer masterclass on Knowledge and Context Management.
+Course materials for the AI-Ready Engineer masterclass on Enterprise Knowledge and Context Management.
 
 Part of the [AI-Ready Engineer](https://ai-ready-engineer.github.io/) series. Sibling course: Experiment Design and Evaluation of AI Systems.
 

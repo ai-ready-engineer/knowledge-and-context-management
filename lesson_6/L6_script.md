@@ -6,7 +6,7 @@
 
 "For six lessons we've treated knowledge as something a *person* looks up. But the consumer now is an *agent* — and the agent never opens your knowledge base. It only ever sees what you put in its context window. So the question stops being 'is the knowledge good?' and becomes 'is the right knowledge *in the window* when the agent thinks?'"
 
-Hook: "This is the 'context' in Knowledge and Context Management. The forward pass — knowledge flowing out to the agent."
+Hook: "This is the 'context' in Enterprise Knowledge and Context Management. The forward pass — knowledge flowing out to the agent."
 
 ## Beats
 
