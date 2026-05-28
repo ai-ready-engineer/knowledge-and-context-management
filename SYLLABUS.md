@@ -1,8 +1,7 @@
-# Enterprise Knowledge and Context Management
+# Enterprise Knowledge and Context Management - for AI and Humans
 
-> A short course for everyone who builds with, ships, or depends on AI systems that sit on top of an organization's knowledge — engineers, PMs, knowledge owners, data teams, leaders. No heavy coding required. We build the knowledge layer that determines whether the AI on top of it is any good.
+> A short course for everyone who builds with, ships, or depends on AI systems that sit on top of an organization's knowledge — engineers, PMs, knowledge owners, data teams, leaders. No coding required. We build the knowledge layer that determines whether the AI on top of it is any good.
 
-Each lesson takes one stage of the **knowledge lifecycle** — *represent → connect → extract & discover → query → provide context → improve* — and keeps **quality of knowledge** as the through-line.
 
 ## Why this course
 
