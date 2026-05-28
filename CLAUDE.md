@@ -1,4 +1,4 @@
-# Project notes — Enterprise Knowledge and Context Management - for AI and Humans
+# Project notes — Enterprise Knowledge and Context Management
 
 Part of the AI-Ready Engineer masterclass series (sibling to Experiment Design and Evaluation of AI Systems). Single folder — no public/private split. Shares the AI-Ready Swiss theme in `style.css`.
 

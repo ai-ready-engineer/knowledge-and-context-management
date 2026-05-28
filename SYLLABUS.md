@@ -1,7 +1,4 @@
-# Enterprise Knowledge and Context Management 
-*For AI and Humans*
-
-
+# Enterprise Knowledge and Context Management
 
 ## Why this course
 
@@ -39,9 +36,9 @@ These have implications for enterprises:
 
 ## What you will learn
 
-By the end of the course, "knowledge" will look like a managed, measurable asset — not a folder of documents you hope someone reads. You will be able to:
+By the end of the course, "knowledge" will look like a managed, measurable asset. You will be able to:
 
-- Write a quality scorecard for your knowledge base and get a baseline reading.
+- Write a quality scorecard for your knowledge based on intrinsic and extrinsic (usage) metrics.
 - Pick the right representation — text, schema, taxonomy, embedding, graph — for each use case, and defend the choice.
 - Sketch a knowledge graph schema for your domain, and call when it earns its keep over a plain vector store.
 - Extract structured knowledge from messy sources, abstract it into higher-level structure, and infer the edges nobody wrote down.

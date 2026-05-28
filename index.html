@@ -3,29 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise Knowledge and Context Management - for AI and Humans</title>
+  <title>Enterprise Knowledge and Context Management</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
 
     <div class="hero">
-      <h1>Enterprise Knowledge and Context Management - for AI and Humans</h1>
-      <p class="subtitle" style="font-size:1.4rem; line-height:1.5; font-style:italic; color:var(--color-text); margin-top:1.25rem;">Your AI is only as good as the knowledge behind it. Learn to represent it, connect it, extract it, query it, serve it to agents, and keep it good.</p>
+      <h1>Enterprise Knowledge and Context Management</h1>
       <p class="hero-meta">Course outline — lessons below. Detailed content and hands-on labs in progress.</p>
     </div>
 
     <section>
-      <p>The course has no prerequisites except for:</p>
-      <ul>
-        <li>Curiosity</li>
-        <li>Something you actually want your organization to <em>know</em></li>
-        <li>Patience for the unglamorous truth that good AI starts with good knowledge</li>
-      </ul>
-      <p>The course is "hands-on" but no heavy coding is required: you will get to play with small examples to <em>feel</em> what a representation, a graph, or an extraction buys you — and where each one breaks.</p>
-    </section>
 
-    <section>
+      <details class="topic" open>
+        <summary><h2>Why this course</h2></summary>
+        <div class="details-content">
+          <p>AI changes knowledge management:</p>
+          <ol>
+            <li>Agents are a primary — if not <em>the</em> primary — consumer of knowledge. This gives us a unique opportunity: getting high-resolution feedback on knowledge, at scale, directly from the agents themselves.</li>
+            <li>Context engineering — what to show an agent, in what form, at what time — is central to the success of our agents.</li>
+            <li>The way agents consume knowledge is different from how humans do — and even humans increasingly consume knowledge <em>through</em> agents. This changes how we represent and structure knowledge.</li>
+            <li>Agents are also increasingly producers of knowledge. Humans have to pick what they want to control and what can instead evolve at the speed of agents.</li>
+          </ol>
+          <p>These have implications for enterprises:</p>
+          <ul>
+            <li>Knowledge gets a loss function. It becomes "testable" and can evolve almost on its own.</li>
+            <li>Balancing speed, quality, and governance is the new mastery.</li>
+            <li>Knowledge has many authors and many forms — we can now process, represent, and make use of all of them to get the right content to consumers.</li>
+            <li>Knowledge graduates from documentation to infrastructure.</li>
+          </ul>
+        </div>
+      </details>
+
       <details class="topic" open>
         <summary><h2>Who this course is for</h2></summary>
         <div class="details-content">
@@ -39,26 +49,25 @@
       </details>
 
       <details class="topic" open>
-        <summary><h2>How the course works</h2></summary>
+        <summary><h2>Objectives</h2></summary>
         <div class="details-content">
-          <p>The course follows <strong>one stage of the knowledge lifecycle</strong> per lesson — represent, connect, extract, abstract, infer, query, provide context, improve — keeping <strong>quality of knowledge</strong> as the through-line: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.</p>
-          <p>The lifecycle is a loop, not a line: the final lesson consolidates the signals from extraction (L4), inference (L5), querying (L6), context-serving (L7), and the agents themselves, and feeds fixes back into representation, the graph, and extraction.</p>
-          <p>The <strong>agent loop</strong> runs through the second half: knowledge flows out to agents as context (L7, the forward pass), and agent feedback flows back to update the knowledge (L8, "agentic backpropagation").</p>
+          <p><strong>For the individual</strong> — treat knowledge as something you can design and measure, not just accumulate. After the course, given a knowledge base behind an AI system, you can say what is good and bad about it, why an answer failed, and what to fix first.</p>
+          <p><strong>For the company</strong> — knowledge quality as shared infrastructure. When teams share a vocabulary for representation, extraction, graphs, and quality, a knowledge defect gets caught and fixed before it degrades every downstream answer.</p>
         </div>
       </details>
 
       <details class="topic" open>
         <summary><h2>What you will learn</h2></summary>
         <div class="details-content">
-          <p>By the end of the course, "knowledge" will look like a managed, measurable asset — not a folder of documents you hope someone reads. You will be able to:</p>
+          <p>By the end of the course, "knowledge" will look like a managed, measurable asset. You will be able to:</p>
           <ul>
-            <li>Define what quality of knowledge means for your domain, and measure it.</li>
-            <li>Choose how to represent knowledge — text, schemas, taxonomies, embeddings, graphs — for the job at hand.</li>
-            <li>Model a knowledge graph and decide when it beats a plain vector store.</li>
-            <li>Extract structured knowledge from messy sources, abstract it into higher-level structure, and infer what the graph doesn't explicitly state.</li>
-            <li>Query knowledge well — keyword, semantic, structured, RAG, and GraphRAG — and tell grounded answers from guesses.</li>
-            <li>Provide the right context to agents — grounded, fresh, and within the window's budget.</li>
-            <li>Backpropagate agentic feedback and run an improvement loop that keeps the knowledge fresh, complete, and correct.</li>
+            <li>Write a quality scorecard for your knowledge based on intrinsic and extrinsic (usage) metrics.</li>
+            <li>Pick the right representation — text, schema, taxonomy, embedding, graph — for each use case, and defend the choice.</li>
+            <li>Sketch a knowledge graph schema for your domain, and call when it earns its keep over a plain vector store.</li>
+            <li>Extract structured knowledge from messy sources, abstract it into higher-level structure, and infer the edges nobody wrote down.</li>
+            <li>Choose the right query mode — keyword, semantic, structured, RAG, GraphRAG — and tell a grounded answer from a guess.</li>
+            <li>Assemble agent context that is grounded, fresh, and within the window's budget — and know what to cut when it isn't.</li>
+            <li>Turn agent failures into knowledge fixes, and run the improvement loop that keeps the base fresh, complete, and correct.</li>
           </ul>
         </div>
       </details>
@@ -74,8 +83,37 @@
         </div>
       </details>
 
+      <details class="topic" open>
+        <summary><h2>Prerequisites</h2></summary>
+        <div class="details-content">
+          <p>The course has no prerequisites except for:</p>
+          <ul>
+            <li>Curiosity</li>
+            <li>Something you actually want your organization to <em>know</em></li>
+            <li>Patience for the unglamorous truth that good AI starts with good knowledge</li>
+          </ul>
+          <p>The course is "hands-on" but no heavy coding is required: you will get to play with small examples to <em>feel</em> what a representation, a graph, or an extraction buys you — and where each one breaks.</p>
+        </div>
+      </details>
+
+      <details class="topic" open>
+        <summary><h2>Format</h2></summary>
+        <div class="details-content">
+          <p>Each lesson: a core part <strong>for everybody</strong> (no code, no math prereq), a <strong>hands-on example</strong> (interactive, no install), and <strong>practical examples</strong>. Optional deeper notebooks are take-home.</p>
+        </div>
+      </details>
+
+      <details class="topic" open>
+        <summary><h2>How the course works</h2></summary>
+        <div class="details-content">
+          <p>The course follows <strong>one stage of the knowledge lifecycle</strong> per lesson — represent, connect, extract, abstract, infer, query, provide context, improve — keeping <strong>quality of knowledge</strong> as the through-line: every stage is judged by whether the knowledge it produces is correct, complete, consistent, fresh, and findable.</p>
+          <p>The lifecycle is a loop, not a line: the final lesson consolidates the signals from extraction (L4), inference (L5), querying (L6), context-serving (L7), and the agents themselves, and feeds fixes back into representation, the graph, and extraction.</p>
+          <p>The <strong>agent loop</strong> runs through the second half: knowledge flows out to agents as context (L7, the forward pass), and agent feedback flows back to update the knowledge (L8, "agentic backpropagation").</p>
+        </div>
+      </details>
+
       <h2 style="margin-top:2.5rem;">The lessons</h2>
-      <p>Eight <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract → abstract → infer → query → provide context → improve</em>. Titles below; detailed content and hands-on labs are in progress.</p>
+      <p>Eight <strong>1-hour sessions</strong> following the knowledge lifecycle: <em>represent → connect → extract → abstract → infer → query → provide context → improve</em>.</p>
 
       <div class="modules-grid">
         <div class="module-card">
@@ -131,7 +169,7 @@
 
   </main>
   <footer>
-    <p>Enterprise Knowledge and Context Management - for AI and Humans</p>
+    <p>Enterprise Knowledge and Context Management</p>
     <p>Content by Fabio Casati</p>
   </footer>
 </body>
